@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Servartur.Api2/Servartur.Api2.csproj" />
+  <Project Path="src/Servartur.Api/Servartur.Api.csproj" />
+</Solution>
