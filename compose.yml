@@ -8,11 +8,8 @@ services:
     depends_on:
       - api
   api:
-    build:
-      context: ./backend/servartur
-      dockerfile: src/Servartur.Api/Dockerfile
-
+    image: ghcr.io/mteblesz/artur/api:latest
+    container_name: api
+    restart: unless-stopped
     environment:
       ASPNETCORE_URLS: http://+:8080
-
-    restart: unless-stopped
