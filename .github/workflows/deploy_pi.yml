@@ -32,7 +32,7 @@ jobs:
       - name: Build and push API image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./backend
           file: backend/servartur/src/Servartur.Api/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}/api:latest

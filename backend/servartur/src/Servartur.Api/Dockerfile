@@ -8,16 +8,13 @@ ARG BUILD_CONFIGURATION=Release
 
 WORKDIR /src
 
-# Copy solution and all projects
 COPY servartur/servartur.slnx ./
 COPY servartur/src/ ./src/
 COPY servartur/Directory.*.props ./
 COPY servartur/NuGet.config ./
 
-# Restore all projects
 RUN dotnet restore ./servartur.slnx
 
-# Build and publish only the API project
 WORKDIR /src/src/Servartur.Api
 RUN dotnet build "Servartur.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 RUN dotnet publish "Servartur.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
